@@ -1,0 +1,47 @@
+var thymeleafLib = require('/lib/xp/thymeleaf');
+var view = resolve('article-show.html');
+
+function handleGet(req) {
+
+    var params = {
+        partName: "article-show"
+    };
+
+    var body = thymeleafLib.render(view, params);
+
+    return {
+        contentType: 'text/html',
+        body: body
+    };
+}
+
+exports.get = handleGet;
+
+/*
+ * The following DataSources were used in the original CMS portlet:
+
+<datasources>
+    <datasource name="getContent">
+        <parameter name="contentKeys">${select(param.key, -1)}</parameter>
+        <parameter name="query"/>
+        <parameter name="orderBy"/>
+        <parameter name="index">0</parameter>
+        <parameter name="count">1</parameter>
+        <parameter name="includeData">true</parameter>
+        <parameter name="childrenLevel">1</parameter>
+        <parameter name="parentLevel">0</parameter>
+    </datasource>
+    <!--datasource name="getContentByCategory" result-element="files">
+        <parameter name="categoryKeys">${select(param.cat,14)}</parameter>
+        <parameter name="levels">1</parameter>
+        <parameter name="query">contenttype = "fil"</parameter>
+        <parameter name="orderBy">created DESC</parameter>
+        <parameter name="index">${select(param.index, 0)}</parameter>
+        <parameter name="count">1000</parameter>
+        <parameter name="includeData">true</parameter>
+        <parameter name="childrenLevel">0</parameter>
+        <parameter name="parentLevel">0</parameter>
+    </datasource-->
+</datasources>
+
+*/

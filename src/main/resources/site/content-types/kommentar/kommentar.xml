@@ -1,0 +1,42 @@
+<content-type>
+    <display-name>kommentar</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Comment">
+            <label>Comment</label>
+            <items>
+                <input name="name" type="TextLine">
+                    <label>Name</label>
+                    <custom-text>contentdata/name</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="comment" type="TextArea">
+                    <label>Comment</label>
+                    <custom-text>contentdata/comment</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+            </items>
+        </field-set>
+        <field-set name="Commented content">
+            <label>Commented content</label>
+            <items>
+                <input name="commented-content-heading" type="TextLine">
+                    <label>Commented content heading</label>
+                    <custom-text>contentdata/commented-content-heading</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="commented-content" type="ContentSelector">
+                    <label>Commented content</label>
+                    <custom-text>contentdata/commented-content</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:artikkel</allow-content-type>
+                    </config>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>

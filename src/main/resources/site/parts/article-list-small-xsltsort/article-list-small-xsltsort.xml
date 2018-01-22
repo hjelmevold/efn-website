@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>article-list-small-xsltsort</display-name>
+  <config>
+    <input name="custom-heading" type="TextLine">
+        <label>custom-heading</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <input name="teaserlink-to-menuitemkey" type="TextLine">
+        <label>teaserlink-to-menuitemkey</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <input name="count" type="TextLine">
+        <label>count</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <input name="use-full-view" type="TextLine">
+        <label>use-full-view</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+</part>

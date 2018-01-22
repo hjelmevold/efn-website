@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>comments</display-name>
+  <config>
+    <input name="comments-folder" type="ContentSelector">
+        <label>comments-folder</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+</part>

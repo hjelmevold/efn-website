@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+  <config/>
+  <x-data mixin="menu-item"/>
+  <x-data mixin="cmsContent"/>
+  <x-data mixin="cmsMenu"/>
+  <mappings>
+    <mapping controller="/lib/enonic/url-redirect/index.js">
+      <match>type:'no.efn.xp.app.website:url'</match>
+    </mapping>
+  </mappings>
+</site>

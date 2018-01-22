@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page>
+  <display-name>page</display-name>
+  <config>
+    <input name="custom-css-body-class" type="TextLine">
+        <label>custom-css-body-class</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+  <regions>
+    <region name="center"/>
+    <region name="east"/>
+    <region name="north"/>
+    <region name="south"/>
+    <region name="west"/>
+  </regions>
+</page>

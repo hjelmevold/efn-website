@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page>
+  <display-name>page.rss-producer</display-name>
+  <config>
+    <input name="channel-managing-editor" type="TextLine">
+        <label>channel-managing-editor</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <input name="channel-webmaster" type="TextLine">
+        <label>channel-webmaster</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <input name="channel-image-path" type="TextLine">
+        <label>channel-image-path</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+  <regions>
+  </regions>
+</page>

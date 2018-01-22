@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page>
+  <display-name>page.googlesitemap</display-name>
+  <config>
+    <input name="default-google-changefreq" type="TextLine">
+        <label>default-google-changefreq</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+  <regions>
+  </regions>
+</page>

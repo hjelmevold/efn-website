@@ -1,0 +1,131 @@
+<content-type>
+    <display-name>event</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Event">
+            <label>Event</label>
+            <items>
+                <input name="heading" type="TextLine">
+                    <label>Heading</label>
+                    <custom-text>contentdata/heading</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="start-date" type="Date">
+                    <label>Start date</label>
+                    <custom-text>contentdata/start-date</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="start-time" type="TextLine">
+                    <label>Start time</label>
+                    <custom-text>contentdata/start-time</custom-text>
+                    <help-text>hh:mm (24 hours format)</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="end-date" type="Date">
+                    <label>End date</label>
+                    <custom-text>contentdata/end-date</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="end-time" type="TextLine">
+                    <label>End time</label>
+                    <custom-text>contentdata/end-time</custom-text>
+                    <help-text>hh:mm (24 hours format)</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="location" type="TextLine">
+                    <label>Location</label>
+                    <custom-text>contentdata/location</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="preface" type="TextArea">
+                    <label>Preface</label>
+                    <custom-text>contentdata/preface</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="text" type="HtmlArea">
+                    <label>Text</label>
+                    <custom-text>contentdata/text</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+            </items>
+        </field-set>
+        <item-set name="image">
+            <label>Image</label>
+            <occurrences maximum="0" minimum="0"/>
+            <items>
+                <input name="image" type="ImageSelector">
+                    <label>Image</label>
+                    <custom-text>image</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="image_text" type="TextArea">
+                    <label>Image text</label>
+                    <custom-text>image_text</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </item-set>
+        <item-set name="link">
+            <label>Related link</label>
+            <occurrences maximum="0" minimum="0"/>
+            <items>
+                <input name="url" type="TextLine">
+                    <label>URL</label>
+                    <custom-text>url</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="description" type="TextLine">
+                    <label>Description</label>
+                    <custom-text>description</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="destination" type="ComboBox">
+                    <label>Open in</label>
+                    <custom-text>target</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                    <config>
+                        <option value="new">New window</option>
+                        <option value="current">Current window</option>
+                    </config>
+                </input>
+            </items>
+        </item-set>
+        <field-set name="Relatert innhold">
+            <label>Relatert innhold</label>
+            <items>
+                <input name="file" type="ContentSelector">
+                    <label>Filer</label>
+                    <custom-text>contentdata/file</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="link" type="ContentSelector">
+                    <label>Lenker</label>
+                    <custom-text>contentdata/link</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:lenke</allow-content-type>
+                    </config>
+                </input>
+                <input name="article" type="ContentSelector">
+                    <label>Artikler</label>
+                    <custom-text>contentdata/article</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:artikkel</allow-content-type>
+                    </config>
+                </input>
+                <input name="event" type="ContentSelector">
+                    <label>Arrangementer</label>
+                    <custom-text>contentdata/event</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:event</allow-content-type>
+                    </config>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>

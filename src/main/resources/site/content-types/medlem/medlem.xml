@@ -1,0 +1,69 @@
+<content-type>
+    <display-name>medlem</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Destination">
+            <label>Destination</label>
+            <items>
+                <input name="memberid" type="TextLine">
+                    <label>Medlemsnummer</label>
+                    <custom-text>contentdata/memberid</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="firstname" type="TextLine">
+                    <label>Fornavn</label>
+                    <custom-text>contentdata/firstname</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="lastname" type="TextLine">
+                    <label>Etternavn</label>
+                    <custom-text>contentdata/lastname</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="address" type="TextLine">
+                    <label>Adresse</label>
+                    <custom-text>contentdata/address</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="postcode" type="TextLine">
+                    <label>Postnummer</label>
+                    <custom-text>contentdata/postcode</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="birthday" type="TextLine">
+                    <label>Fødselsdag</label>
+                    <custom-text>contentdata/birthday</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="birthmonth" type="TextLine">
+                    <label>Fødselsmåned</label>
+                    <custom-text>contentdata/birthmonth</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="birthyear" type="TextLine">
+                    <label>Fødselsår</label>
+                    <custom-text>contentdata/birthyear</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="sex" type="TextLine">
+                    <label>Kjønn</label>
+                    <custom-text>contentdata/sex</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="email" type="TextLine">
+                    <label>E-post</label>
+                    <custom-text>contentdata/email</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="phone" type="TextLine">
+                    <label>Telefon</label>
+                    <custom-text>contentdata/phone</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>

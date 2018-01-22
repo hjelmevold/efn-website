@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>report-form</display-name>
+  <config>
+    <input name="custom-heading" type="TextLine">
+        <label>custom-heading</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+</config>
+</part>

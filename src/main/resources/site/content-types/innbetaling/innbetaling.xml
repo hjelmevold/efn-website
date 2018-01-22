@@ -1,0 +1,54 @@
+<content-type>
+    <display-name>innbetaling</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Destination">
+            <label>Destination</label>
+            <items>
+                <input name="checkid" type="TextLine">
+                    <label>Bilagsnummer</label>
+                    <custom-text>contentdata/checkid</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="memberid" type="TextLine">
+                    <label>Medlemsnummer</label>
+                    <custom-text>contentdata/memberid</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="departmentid" type="TextLine">
+                    <label>Lokallag-ID</label>
+                    <custom-text>contentdata/departmentid</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="paymentdate" type="Date">
+                    <label>Betalingsdato</label>
+                    <custom-text>contentdata/paymentdate</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="amount" type="TextLine">
+                    <label>Beløp</label>
+                    <custom-text>contentdata/amount</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="membershipyear" type="TextLine">
+                    <label>Medlemsår</label>
+                    <custom-text>contentdata/membershipyear</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="comment" type="TextLine">
+                    <label>Kommentar</label>
+                    <custom-text>contentdata/comment</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="kid" type="TextLine">
+                    <label>KID-nummer</label>
+                    <custom-text>contentdata/kid</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>

@@ -1,0 +1,345 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="no" xml:lang="no">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>EFN</title>
+        <meta name="robots" content="nofollow" />
+        <meta name="generator" content="Enonic CMS" />
+        <meta http-equiv="content-language" content="no" />
+        <meta name="author" content="Enonic" />
+
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery-1.4.2.min.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery.validate.min.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery.dotdotdot.min.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery-ui-1.7.2.custom.min.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery.tooltip.min.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery.cookie.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=sites/advanced/scripts/common-all.js'})}"></script>
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=sites/advanced/scripts/common-pc.js'})}"></script>
+
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=sites/advanced/all.css'})}" type="text/css" />
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=sites/advanced/pc.css'})}" type="text/css" />
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/ui-custom-theme/jquery-ui-1.7.2.custom.css'})}" type="text/css" />
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/all.css'})}" type="text/css" />
+        <!--/* TODO: Add mobile support which was present in Enonic CMS. Currently desktop only. */-->
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/pc.css'})}" type="text/css" />
+        <link href="//fonts.googleapis.com/css?family=Ubuntu:700italic,700,400italic,400" rel="stylesheet" type="text/css" />
+        <link href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
+
+        <span data-th-utext="'&lt;!--[if IE]&gt;'" data-th-remove="tag"></span>
+            <link rel="stylesheet" type="text/css" data-th-href="${portal.assetUrl({'_path=sites/advanced/ie.css'})}" />
+        <span data-th-utext="'&lt;![endif]--&gt;'" data-th-remove="tag"></span>
+
+        <style type="text/css">@media screen { #header, #outer-container, #footer {width: 950px;} #north {width: 950px;padding: 0px;} #west {width: 190px;padding: 0px;margin-right: 10px;} #center {width: 730px;padding: 10px;margin-right: 10px;} #east {width: 190px;padding: 0px;} #south {width: 950px;padding: 0px;}.menu.main.level1 .fixed-add-one { width: 159px; } .menu.main.level1 .fixed { width: 158px; }}#north .frame {padding: 10px;}#west .frame {padding: 10px;}#center .frame {padding: 10px;border-width: 1px;}#east .frame {padding: 10px;}#south .frame {padding: 10px;}</style>
+    </head>
+
+    <body class="front-page">
+        <!--googleoff: index-->
+        <!--stopindex-->
+        <ul id="accessibility-links" class="screen">
+            <li>
+                <a href="/#main-menu" accesskey="m">Gå til hovedmeny (Alt + m + enter)</a>
+            </li>
+            <li>
+                <a href="/#center" accesskey="c">Gå til innhold (Alt + c + enter)</a>
+            </li>
+        </ul>
+        <div id="header">
+            <a class="screen" href="/no/forside">
+                <img alt="EFN-logo" id="logo-screen" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-screen.png'})}" title="EFN" />
+            </a>
+            <img alt="EFN-logo" id="logo-print" class="print" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-print.gif'})}" title="EFN" />
+            <div id="header-content" class="screen">
+                <div class="header-content top clearfix">
+                    <ul class="menu horizontal flags screen">
+                        <li id="text-size">
+                            <a href="#" class="change-text-size">Skriftstørrelse</a><a href="#">A</a>
+                            <a href="#" class="large-text">A</a>
+                            <a href="#" class="largest-text">A</a>
+                        </li>
+                        <li>
+                            <a href="#" id="contrast">Høykontrast</a>
+                        </li>
+                        <li>
+                            <a href="/no" class="tooltip" title="">
+                                <img src="/_public/skins/advanced/efn/images/flag-no-active.png?_ts=13cf70432a8" alt="" />
+                            </a>
+                         </li>
+                        <li>
+                            <a href="/en" class="tooltip" title="">
+                                <img src="/_public/skins/advanced/efn/images/flag-en.png?_ts=13cf70432a8" alt="" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-content bottom clear clearfix">
+                    <ul class="menu horizontal">
+                        <li>
+                            <a href="/no/forside/nettstedskart">Nettstedskart</a>
+                        </li>
+                    </ul>
+                    <form action="/no/forside/sokeresultat" method="get">
+                        <fieldset>
+                            <label for="page-search-box">Søk</label>
+                            <input type="text" class="text" name="q" id="page-search-box" value="" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="outer-container" class="clear clearfix">
+            <div class="clear clearfix" id="main-menu">
+                <ul class="menu horizontal main screen clearfix level1">
+                    <li class="fixed-add-one">
+                        <a href="/no/forside" class="first path active" title="Forside">Forside</a>
+                    </li>
+                    <li class="fixed-add-one">
+                        <a href="/no/nyheter" title="Nyheter">Nyheter</a>
+                    </li>
+                    <li class="fixed">
+                        <a href="/no/vart-arbeid" title="Vårt arbeid">Vårt arbeid</a>
+                    </li>
+                    <li class="fixed">
+                        <a href="/no/efnu" title="EFNU">EFNU</a>
+                    </li>
+                    <li class="fixed">
+                        <a href="/no/om-efn" title="Om EFN">Om EFN</a>
+                    </li>
+                    <li class="fixed">
+                        <a href="/no/bli-medlem" class=" last" title="Bli medlem">Bli medlem</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="breadcrumb-trail" class="clear screen">Du er her: EFN</div>
+            <!--googleon: index-->
+            <!--startindex-->
+            <div id="middle-container" class="clear clearfix">
+                <div id="inner-container" class="clear clearfix">
+                    <div id="center" class="column clearfix">
+                        <!--/* TODO: insert center region here */-->
+                        <div class="article-list-small">
+                            <h2 class="portlet-heading">Profilerte artikler</h2>
+                            <div class="list clear clearfix append-bottom">
+                                <div class="item first">
+                                    <h3>
+                                        <a href="/no/forside/profilerte-artikler/proving-av-dns-domenebeslag-popcorn-time.no">Prøving av DNS-domenebeslag popcorn/time.no</a>
+                                    </h3>
+                                    <p>NUUG og EFN begjærer rettslig prøving for DNS-domenebeslag av popcorn-time.no</p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/forside/profilerte-artikler/gj%C3%B8rokrati-og-frivillig-innsats-i-efn">Gjørokrati og frivillig innsats i EFN</a>
+                                    </h3>
+                                    <p>Dette dokumentet beskriver hvordan frivillig innsats i EFN organiseres og forklarer begrepet "gjørokrati". EFN er et gjørokrati. Hva er er gjørokrati, og hva innebærer det for arbeidet i EFN?</p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/om-efn">Om EFN</a>
+                                    </h3>
+                                    <p>EFN er en elektronisk borgerrettsorganisasjon - en rettighetsorganisasjon for ALLES rettigheter - som jobber med medborgerskap og juridiske rettigheter i IT-samfunnet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-list-small">
+                            <h2 class="portlet-heading">Siste nytt</h2>
+                            <div class="list clear clearfix append-bottom">
+                                <div class="item first">
+                                    <h3>
+                                        <a href="/no/vart-arbeid/horinger/rapporten-fra-helsedatautvalget-et-nytt-system-for-enklere-og-sikrere-tilgang-til-helsedata">Høringsuttalelse om rapporten fra Helsedatautvalget: Et nytt system for enklere og sikrere tilgang til helsedata</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">29/11/2017</span>
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/valg-2017">Valg 2017</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">10/09/2017</span>EFN har spurt de politiske partiene hva de mener om forskjellige temaer som berører digitalt personvern. Dagen før valgdagen er det fire partier som har svart oss, men vi håper flere partier vil komme tilbake med svar så snart som mulig etter at valginnspurten er over. Enkelte av de innkomne besvarelsene er mere reflekterte og prinsipielle enn andre. Vi...
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/lover-overalt/tvunget-biometrisk-autentisering-i-norge">Tvunget biometrisk autentisering i Norge</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">26/07/2017</span>Den 5 April 2017, la regjeringen frem et endringsforslag til Straffeprosessloven som tillater politiet å bruke tvang for å gjennomføre biometrisk autentisering. Etter 2 korte debatter uten mye innhold ble loven vedtatt den 21. juni.
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/lover-overalt/lagring-av-ip-adresser-prinsipielt-betenkelig-og-lite-treffsikkert">Lagring av IP-adresser prinsipielt betenkelig og lite treffsikkert</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">14/06/2017</span>Det har blitt fremmet et forslag for stortinget om lagring av IP-adresser mye av dette har blitt begrunnet i den såkalte Darkroom-saken. EFN er sterkt i mot at man innfører en ny lagringsplikt og oppfatter dette som om noen har sminket brura. I dette tilfellet Datalagringsdirektivet som har blitt underkjent i flere rettsinnstanser. Det er lett å spørre seg...
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/apne-brev/frivliige-organisasjoner-krever-sterkere-eksportkontroll-av-overvakingsteknologi-med-klare-unntak-for-sikkerhetsforskning">Frivillige organisasjoner krever sterkere eksportkontroll av overvåkingsteknologi med klare unntak for sikkerhetsforskning</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">11/05/2017</span>
+                                    </p>
+                                </div>
+                                <a href="/no/nyheter" class="rss">Les mer »</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="east" class="column clearfix screen">
+                        <div class="article-list-small">
+                            <h2 class="portlet-heading">Nyttige lenker</h2>
+                            <div class="list clear clearfix append-bottom">
+                                <div class="item first">
+                                    <h3>
+                                        <a href="/no/efnu/innmeldingsskjema">Meld deg inn i EFN Ungdom</a>
+                                    </h3>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="https://efn.no/no/vart-arbeid/donasjoner">Donere til EFN</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article-list-small">
+                            <h2 class="portlet-heading">Fra det offentlige</h2>
+                            <div class="list clear clearfix append-bottom">
+                                <div class="item first">
+                                    <h3>
+                                        <a href="/no/nyheter/Nytt+fra+det+offentlige/dokument-8-69-s-2017-2018-representantforslag-om-a-utrede-en-norsk-skatt-for-selskaper-med-digitale-inntektsmodeller-en-google-skatt">Dokument 8:69 S (2017-2018) Representantforslag om å utrede en norsk skatt for selskaper med digitale inntektsmodeller - en Google-skatt</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">20.01.2018</span>Brev til Stortinget |   Mottager: Stortingets finanskomite.  Vår referanse: 18/49.  Utrede...
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/Nytt+fra+det+offentlige/ny-nettside-med-statlige-styrer-rad-og-utvalg-skal-gi-mer-apenhet">Ny nettside med statlige styrer, råd og utvalg skal gi mer åpenhet</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">15.01.2018</span>Pressemelding |   Nå blir det enklere å finne ut hvem som sitter i statlige styrer, råd og...
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <h3>
+                                        <a href="/no/nyheter/Nytt+fra+det+offentlige/regjeringa-legg-til-rette-for-etablering-av-fleire-fiberkablar-til-utlandet">Regjeringa legg til rette for etablering av fleire fiberkablar til utlandet</a>
+                                    </h3>
+                                    <p>
+                                        <span class="byline">12.01.2018</span>Pressemelding |   Nr: 4/18  - Digitale tenester blir stadig viktigare i arbeidslivet og på...
+                                    </p>
+                                </div>
+                                <a href="/no/nyheter/Nytt+fra+det+offentlige" class="rss">Les mer »</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--googleoff: index-->
+        <!--stopindex-->
+        <div id="footer" class="clear clearfix">
+            <a href="/no/rss" class="screen">
+                <img src="/_public/skins/advanced/efn/images/icon-rss-large.png?_ts=13cf70432a8" alt="RSS ikon" />
+            </a>
+            <p>
+                <a href="http://www.linux.org/">
+                    <img src="/_public/skins/advanced/efn/images/linuxpowered.png?_ts=140cb13faf8" width="110" height="44" alt="www.linux.org - a GNU and better computer for you" />
+                </a>
+                <a href="http://validator.w3.org/check?uri=referer">
+                    <img src="/_public/skins/advanced/efn/images/valid-xhtml10.png?_ts=140cb149350" alt="Valid XHTML 1.0 Strict" height="31" width="88" />
+                </a>
+                <a href="http://www.anybrowser.org/campaign/">
+                    <img src="/_public/skins/advanced/efn/images/anybrowser02.gif?_ts=140cb12c660" alt="Best Viewed With Any Browser" width="88" height="31" />
+                </a>
+                <a href="http://www.eff.org/br/"><img src="/_public/skins/advanced/efn/images/blueribbon.gif?_ts=140cb1212b0" alt="Support the Blue Ribbon Campaign for Free Speech!" width="143" height="30" /></a>
+            </p>
+            <!--/* TODO: Add mobile support which was present in Enonic CMS. Currently desktop only.
+            <a href="/_services/portal/forceDeviceClass?_instanceKey=PAGE%3A0&amp;_ticket=48b6c27bc68b419bbde84b54264c5841&amp;deviceclass=mobile&amp;lifetime=session" class="device-class screen" rel="nofollow">
+                <img src="/_public/skins/advanced/efn/images/icon-mobile-dark.png?_ts=13cf70432a8" alt="Mobil-versjon" class="icon text" />Bytt til mobil-versjon
+            </a>
+            */-->
+        </div>
+        <script type="text/javascript">
+            var pkBaseURL = (("https:" == document.location.protocol) ? "https://analytics.efn.no/" : "http://analytics.efn.no/");
+            document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+            </script><script type="text/javascript">
+            try {
+            var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+            piwikTracker.trackPageView();
+            piwikTracker.enableLinkTracking();
+            } catch( err ) {}
+        </script>
+        <noscript>
+            <p>
+                <img src="//analytics.efn.no/piwik.php?idsite=1" style="border:0" alt="piwik-tracker" />
+            </p>
+        </noscript>
+    </body>
+</html>
+
+
+
+<!--/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title data-th-text="${reqContent.displayName}">main page controller</title>
+</head>
+
+<body data-portal-component-type="page">
+
+<div id="centerRegion" data-portal-region="center">
+
+    Components in center:
+    <div data-th-if="${reqContent.page.regions['center']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['center'].components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+        </div>
+    </div>
+</div>
+<div id="eastRegion" data-portal-region="east">
+
+    Components in east:
+    <div data-th-if="${reqContent.page.regions['east']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['east'].components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+        </div>
+    </div>
+</div>
+<div id="northRegion" data-portal-region="north">
+
+    Components in north:
+    <div data-th-if="${reqContent.page.regions['north']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['north'].components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+        </div>
+    </div>
+</div>
+<div id="southRegion" data-portal-region="south">
+
+    Components in south:
+    <div data-th-if="${reqContent.page.regions['south']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['south'].components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+        </div>
+    </div>
+</div>
+<div id="westRegion" data-portal-region="west">
+
+    Components in west:
+    <div data-th-if="${reqContent.page.regions['west']}" data-th-remove="tag">
+        <div data-th-each="component : ${reqContent.page.regions['west'].components}" data-th-remove="tag">
+            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+*/-->

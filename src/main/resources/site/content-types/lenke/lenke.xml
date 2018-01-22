@@ -1,0 +1,72 @@
+<content-type>
+    <display-name>lenke</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Lenke">
+            <label>Lenke</label>
+            <items>
+                <input name="heading" type="TextLine">
+                    <label>Heading</label>
+                    <custom-text>contentdata/heading</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="preface" type="TextArea">
+                    <label>Ingress/undertekst</label>
+                    <custom-text>contentdata/preface</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="url" type="TextLine">
+                    <label>URL</label>
+                    <custom-text>contentdata/url</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="external" type="CheckBox">
+                    <label>Åpne i nytt vindu</label>
+                    <custom-text>contentdata/external</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+        <field-set name="Dynamisk lenke i stedet for URL">
+            <label>Dynamisk lenke i stedet for URL</label>
+            <items>
+                <input name="menuitemkey" type="TextLine">
+                    <label>Menypunktnøkkel</label>
+                    <custom-text>contentdata/menuitemkey</custom-text>
+                    <help-text>&lt;&lt; Vises som tooltip når pekeren holdes over et menypunkt til venstre. Vil overstyre URL.</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="contentkey" type="TextLine">
+                    <label>Innholdsnøkkel, publisert artikkel</label>
+                    <custom-text>contentdata/contentkey</custom-text>
+                    <help-text>Lenke til artikkel som er publisert til en listeside, men hvor innholdet ikke har noe eget menypunkt. Nøkkelen finnes under artikkelens Egenskaper-fane.</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="attachmentkey" type="TextLine">
+                    <label>Innholdsnøkkel, nedlastbar fil</label>
+                    <custom-text>contentdata/attachmentkey</custom-text>
+                    <help-text>Lenke til nedlastbar fil. Nøkkelen finnes under filens Egenskaper-fane.</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+        <field-set name="Metadata">
+            <label>Metadata</label>
+            <items>
+                <input name="author" type="TextLine">
+                    <label>Kilde</label>
+                    <custom-text>contentdata/author</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="created" type="Date">
+                    <label>Samplingsdato</label>
+                    <custom-text>contentdata/created</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>

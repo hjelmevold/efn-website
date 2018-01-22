@@ -1,0 +1,106 @@
+<content-type>
+    <display-name>artikkel</display-name>
+    <super-type>base:structured</super-type>
+    <is-abstract>false</is-abstract>
+    <is-final>true</is-final>
+    <allow-child-content>true</allow-child-content>
+    <form>
+        <field-set name="Artikkel">
+            <label>Artikkel</label>
+            <items>
+                <input name="heading" type="TextLine">
+                    <label>Overskrift</label>
+                    <custom-text>contentdata/heading</custom-text>
+                    <occurrences maximum="1" minimum="1"/>
+                </input>
+                <input name="preface" type="TextArea">
+                    <label>Ingress</label>
+                    <custom-text>contentdata/preface</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="text" type="HtmlArea">
+                    <label>Brødtekst</label>
+                    <custom-text>contentdata/text</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+        <field-set name="Metadata">
+            <label>Metadata</label>
+            <items>
+                <input name="author" type="TextLine">
+                    <label>Forfatter (egendefinert)</label>
+                    <custom-text>contentdata/author</custom-text>
+                    <help-text>Vil overstyre innholdets forfatternavn</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="created" type="Date">
+                    <label>Skrevet dato (egendefinert)</label>
+                    <custom-text>contentdata/created</custom-text>
+                    <help-text>Vil overstyre innholdets "sist endret"-dato.</help-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="anonymous" type="CheckBox">
+                    <label>Skjul forfatter/dato</label>
+                    <custom-text>contentdata/anonymous</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+        <item-set name="image">
+            <label>Bilder</label>
+            <occurrences maximum="0" minimum="0"/>
+            <items>
+                <input name="image" type="ImageSelector">
+                    <label>Bilde</label>
+                    <custom-text>image</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+                <input name="image_text" type="TextArea">
+                    <label>Bildetekst</label>
+                    <custom-text>image_text</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </item-set>
+        <field-set name="Relatert innhold">
+            <label>Relatert innhold</label>
+            <items>
+                <input name="file" type="ContentSelector">
+                    <label>Filer</label>
+                    <custom-text>contentdata/file</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:fil</allow-content-type>
+                    </config>
+                </input>
+                <input name="link" type="ContentSelector">
+                    <label>Lenker</label>
+                    <custom-text>contentdata/link</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:lenke</allow-content-type>
+                    </config>
+                </input>
+                <input name="article" type="ContentSelector">
+                    <label>Artikler</label>
+                    <custom-text>contentdata/article</custom-text>
+                    <occurrences maximum="0" minimum="0"/>
+                    <config>
+                        <allow-content-type>no.efn.xp.app.website:artikkel</allow-content-type>
+                    </config>
+                </input>
+            </items>
+        </field-set>
+        <field-set name="Kommentarer">
+            <label>Kommentarer</label>
+            <items>
+                <input name="enablecomments" type="CheckBox">
+                    <label>Tillat kommentarfelt</label>
+                    <custom-text>contentdata/enablecomments</custom-text>
+                    <occurrences maximum="1" minimum="0"/>
+                </input>
+            </items>
+        </field-set>
+    </form>
+</content-type>
