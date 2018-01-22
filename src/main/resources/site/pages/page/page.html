@@ -34,7 +34,7 @@
         <style type="text/css">@media screen { #header, #outer-container, #footer {width: 950px;} #north {width: 950px;padding: 0px;} #west {width: 190px;padding: 0px;margin-right: 10px;} #center {width: 730px;padding: 10px;margin-right: 10px;} #east {width: 190px;padding: 0px;} #south {width: 950px;padding: 0px;}.menu.main.level1 .fixed-add-one { width: 159px; } .menu.main.level1 .fixed { width: 158px; }}#north .frame {padding: 10px;}#west .frame {padding: 10px;}#center .frame {padding: 10px;border-width: 1px;}#east .frame {padding: 10px;}#south .frame {padding: 10px;}</style>
     </head>
 
-    <body class="front-page">
+    <body class="front-page" data-portal-component-type="page">
         <!--googleoff: index-->
         <!--stopindex-->
         <ul id="accessibility-links" class="screen">
@@ -116,8 +116,12 @@
             <!--startindex-->
             <div id="middle-container" class="clear clearfix">
                 <div id="inner-container" class="clear clearfix">
-                    <div id="center" class="column clearfix">
-                        <!--/* TODO: insert center region here */-->
+                    <div id="center" class="column clearfix" data-portal-region="center">
+                        <div data-th-if="${reqContent.page.regions['center']}" data-th-remove="tag">
+                            <div data-th-each="component : ${reqContent.page.regions['center'].components}" data-th-remove="tag">
+                                <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+                            </div>
+                        </div>
                         <div class="article-list-small">
                             <h2 class="portlet-heading">Profilerte artikler</h2>
                             <div class="list clear clearfix append-bottom">
@@ -188,7 +192,12 @@
                             </div>
                         </div>
                     </div>
-                    <div id="east" class="column clearfix screen">
+                    <div id="east" class="column clearfix screen" data-portal-region="east">
+                        <div data-th-if="${reqContent.page.regions['east']}" data-th-remove="tag">
+                            <div data-th-each="component : ${reqContent.page.regions['east'].components}" data-th-remove="tag">
+                                <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+                            </div>
+                        </div>
                         <div class="article-list-small">
                             <h2 class="portlet-heading">Nyttige lenker</h2>
                             <div class="list clear clearfix append-bottom">
@@ -279,67 +288,3 @@
         </noscript>
     </body>
 </html>
-
-
-
-<!--/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title data-th-text="${reqContent.displayName}">main page controller</title>
-</head>
-
-<body data-portal-component-type="page">
-
-<div id="centerRegion" data-portal-region="center">
-
-    Components in center:
-    <div data-th-if="${reqContent.page.regions['center']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.page.regions['center'].components}" data-th-remove="tag">
-            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-        </div>
-    </div>
-</div>
-<div id="eastRegion" data-portal-region="east">
-
-    Components in east:
-    <div data-th-if="${reqContent.page.regions['east']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.page.regions['east'].components}" data-th-remove="tag">
-            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-        </div>
-    </div>
-</div>
-<div id="northRegion" data-portal-region="north">
-
-    Components in north:
-    <div data-th-if="${reqContent.page.regions['north']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.page.regions['north'].components}" data-th-remove="tag">
-            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-        </div>
-    </div>
-</div>
-<div id="southRegion" data-portal-region="south">
-
-    Components in south:
-    <div data-th-if="${reqContent.page.regions['south']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.page.regions['south'].components}" data-th-remove="tag">
-            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-        </div>
-    </div>
-</div>
-<div id="westRegion" data-portal-region="west">
-
-    Components in west:
-    <div data-th-if="${reqContent.page.regions['west']}" data-th-remove="tag">
-        <div data-th-each="component : ${reqContent.page.regions['west'].components}" data-th-remove="tag">
-            <div data-portal-component="${component.path}" data-th-remove="tag"></div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
-*/-->
