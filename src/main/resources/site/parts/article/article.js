@@ -2,16 +2,11 @@ var thymeleafLib = require('/lib/xp/thymeleaf');
 var portalLib = require('/lib/xp/portal');
 var moment = require('/assets/momentjs/2.12.0/min/moment-with-locales.min.js');
 
-var view = resolve('article-show.html');
+var view = resolve('article.html');
 
 function handleGet(request) {
 
-    log.info('request');
-    log.info(JSON.stringify(request, null, 4));
-
     var content = portalLib.getContent({});
-    log.info('content');
-    log.info(JSON.stringify(content, null, 4));
 
     var publishDateSource = content.data.created || content.publish.from || content.createdTime;
     // TODO: prefer site language over content language?
@@ -21,7 +16,7 @@ function handleGet(request) {
 
     var model = {
         partName: "article-show",
-        heading: content.data.title || content._displayName,
+        heading: content.data.heading || content.displayName,
         preface: content.data.preface,
         text: portalLib.processHtml({ value: content.data.text }),
         publishDate: publishDateFormatted,
