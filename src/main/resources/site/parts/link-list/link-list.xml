@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part>
+  <display-name>Link list</display-name>
+  <config>
+    <input name="heading" type="TextLine">
+        <label>Heading</label>
+        <occurrences maximum="1" minimum="0"/>
+    </input>
+    <item-set name="links">
+        <label>Link</label>
+        <items>
+        	<input name="text" type="TextLine">
+        		<label>Link text</label>
+        		<occurrences minimum="1" maximum="1"/>
+        	</input>
+            <option-set name="target">
+                <label>Link target</label>
+                <expanded>true</expanded>
+                <occurrences minimum="1" maximum="1"/>
+                <options minimum="1" maximum="1">
+                    <option name="internal">
+                        <label>Internal link</label>
+                        <default>true</default>
+                        <items>
+                            <input name="content" type="ContentSelector">
+                        		<label>Content</label>
+                        		<occurrences minimum="1" maximum="1"/>
+                        		<config/>
+                        	</input>
+                        </items>
+                    </option>
+                    <option name="url">
+                        <label>URL</label>
+                        <default>false</default>
+                        <items>
+                            <input name="href" type="TextLine">
+                        		<label>HREF</label>
+                        		<occurrences minimum="1" maximum="1"/>
+                        	</input>
+                        </items>
+                    </option>
+                </options>
+            </option-set>
+        </items>
+        <immutable>false</immutable>
+        <occurrences minimum="0" maximum="0"/>
+    </item-set>
+  </config>
+</part>

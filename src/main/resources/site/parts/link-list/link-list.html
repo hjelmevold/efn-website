@@ -1,0 +1,10 @@
+<div class="article-list-small">
+    <h2 class="portlet-heading" data-th-text="${heading}"></h2>
+    <div class="list clear clearfix append-bottom">
+        <div class="item" data-th-each="link,iterStat : ${links}" data-th-classappend="${iterStat.first} ? 'first' : ''">
+            <h3>
+                <a data-th-href="${link.url}" data-th-text="${link.text}"></a>
+            </h3>
+        </div><!-- TODO: classappend item first using iterStat -->
+    </div>
+</div>
