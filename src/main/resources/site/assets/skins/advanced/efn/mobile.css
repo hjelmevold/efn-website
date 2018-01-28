@@ -6,7 +6,7 @@
 @media (max-width: 969px) {
 
  /* Blueprint override */
-body {font-size:100%;color:#000;background-color:#000;font-family:'Ubuntu',sans-serif;}
+body {font-size:100%;color:#000;background-color:#fff;font-family:'Ubuntu',sans-serif;}
 a:focus, a:hover {color:#e23a03;text-decoration:none;}
 a {color:#e23a03;text-decoration:none;}
 
@@ -286,6 +286,10 @@ p.preface {
 /* UI dialog */
 .ui-dialog {
     padding: 0;
+}
+
+.mobile-hidden {
+    display: none;
 }
 
 /* END mobile media query */

@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>EFN</title>
-        <!-- TODO: not sure if this is correct metadata for a responsive page??? -->
+        <!-- TODO: not sure if this is correct metadata for a responsive page??? old CMS packages code -->
         <meta content="minimum-scale=1.0, width=device-width, user-scalable=yes" name="viewport"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
 
@@ -39,27 +39,42 @@
             <link rel="stylesheet" type="text/css" data-th-href="${portal.assetUrl({'_path=sites/advanced/ie.css'})}" />
         <span data-th-utext="'&lt;![endif]--&gt;'" data-th-remove="tag"></span>
 
-        <!-- TODO: dynamic width calculation -->
-        <style type="text/css">@media screen { #header, #outer-container, #footer {width: 950px;} #north {width: 950px;padding: 0px;} #west {width: 190px;padding: 0px;margin-right: 10px;} #center {width: 730px;padding: 10px;margin-right: 10px;} #east {width: 190px;padding: 0px;} #south {width: 950px;padding: 0px;}.menu.main.level1 .fixed-add-one { width: 159px; } .menu.main.level1 .fixed { width: 158px; }}#north .frame {padding: 10px;}#west .frame {padding: 10px;}#center .frame {padding: 10px;border-width: 1px;}#east .frame {padding: 10px;}#south .frame {padding: 10px;}</style>
+        <!-- TODO: dynamic width calculation with west menu using calc() OR remove and replace with flexbox -->
+        <style type="text/css">
+            @media screen and (min-width: 970px) {
+                #header, #outer-container, #footer {width: 950px;}
+                #north {width: 950px;padding: 0px;}
+                #west {width: 190px;padding: 0px;margin-right: 10px;}
+                #center {width: 730px;padding: 10px;margin-right: 10px;}
+                #east {width: 190px;padding: 0px;}
+                #south {width: 950px;padding: 0px;}
+                .menu.main.level1 .fixed-add-one { width: 159px; }
+                .menu.main.level1 .fixed { width: 158px; }
+            }
+            @media screen and (max-width: 969px) {
+                #header, #page-search-form, #center, #footer {width: 296px;padding: 12px;}
+                #outer-container, #navigation, #menu {width: 320px;}
+                #north {width: 320px;padding: 0px;}
+                #south {width: 320px;padding: 0px;}
+            }
+            #north .frame {padding: 10px;}
+            #west .frame {padding: 10px;}
+            #center .frame {padding: 10px;border-width: 1px;}
+            #east .frame {padding: 10px;}
+            #south .frame {padding: 10px;}
+        </style>
     </head>
 
     <body class="front-page" data-portal-component-type="page">
         <!--googleoff: index-->
         <!--stopindex-->
-        <ul id="accessibility-links" class="screen">
-            <li>
-                <a href="/#main-menu" accesskey="m">Gå til hovedmeny (Alt + m + enter)</a>
-            </li>
-            <li>
-                <a href="/#center" accesskey="c">Gå til innhold (Alt + c + enter)</a>
-            </li>
-        </ul>
         <div id="header">
             <a class="screen" href="/no/forside">
-                <img alt="EFN-logo" id="logo-screen" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-screen.png'})}" title="EFN" />
+                <img alt="EFN-logo" id="logo-screen" class="mobile-hidden" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-screen.png'})}" title="EFN" />
+                <img alt="EFN-logo" id="logo" class="pc-hidden" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images-mobile/logo.png'})}" title="EFN" />
             </a>
-            <img alt="EFN-logo" id="logo-print" class="print" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-print.gif'})}" title="EFN" />
-            <div id="header-content" class="screen">
+            <img alt="EFN-logo" id="logo-print" class="print mobile-hidden" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-print.gif'})}" title="EFN" />
+            <div id="header-content" class="screen mobile-hidden">
                 <div class="header-content top clearfix">
                     <ul class="menu horizontal flags screen">
                         <li id="text-size">
@@ -99,7 +114,7 @@
             </div>
         </div>
         <div id="outer-container" class="clear clearfix">
-            <div class="clear clearfix" id="main-menu">
+            <div class="clear clearfix mobile-hidden" id="main-menu">
                 <ul class="menu horizontal main screen clearfix level1">
                     <li class="fixed-add-one">
                         <a href="/no/forside" class="first path active" title="Forside">Forside</a>
@@ -121,7 +136,20 @@
                     </li>
                 </ul>
             </div>
-            <div id="breadcrumb-trail" class="clear screen">Du er her: EFN</div>
+            <div id="navigation" class="clearfix pc-hidden"><a href="#" class="bullet plus">Vis meny</a></div>
+            <ul id="menu" class="clear pc-hidden">
+                <li class="first active"><a href="/no/forside" class="nav">Forside</a><a href="/no/forside" class="bullet arrow"><br /></a></li>
+                <li><a href="/no/nyheter" class="nav closed">Nyheter</a><a href="/no/nyheter" class="bullet arrow"><br /></a></li>
+                <li><a href="/no/vart-arbeid" class="nav closed">Vårt arbeid</a><a href="/no/vart-arbeid" class="bullet arrow"><br /></a></li>
+                <li><a href="/no/efnu" class="nav closed">EFNU</a><a href="/no/efnu" class="bullet arrow"><br /></a></li>
+                <li><a href="/no/om-efn" class="nav closed">Om EFN</a><a href="/no/om-efn" class="bullet arrow"><br /></a></li>
+                <li><a href="/no/bli-medlem" class="nav">Bli medlem</a><a href="/no/bli-medlem" class="bullet arrow"><br /></a></li>
+             </ul>
+             <form action="/no/forside/sokeresultat" method="get" class="clear pc-hidden"
+                   id="page-search-form">
+                <fieldset><label for="page-search-box">Søk</label><input type="text" class="text" name="q" id="page-search-box" value="" /><input type="submit" class="button" value="Gå" /></fieldset>
+             </form>
+            <div id="breadcrumb-trail" class="clear screen mobile-hidden">Du er her: EFN</div>
             <!--googleon: index-->
             <!--startindex-->
             <div id="middle-container" class="clear clearfix">

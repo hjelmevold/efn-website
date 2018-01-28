@@ -1,25 +1,19 @@
+var portalLib = require('/lib/xp/portal');
 var thymeleafLib = require('/lib/xp/thymeleaf');
 var view = resolve('heading.html');
 
 function handleGet(req) {
 
-    var params = {
-        partName: "heading"
-    };
+    var content = portalLib.getContent();
 
-    var body = thymeleafLib.render(view, params);
+    var model = {
+        heading: content.displayName || ''
+    };
 
     return {
         contentType: 'text/html',
-        body: body
+        body: thymeleafLib.render(view, model)
     };
 }
 
 exports.get = handleGet;
-
-/*
- * The following DataSources were used in the original CMS portlet:
-
-<datasources/>
-
-*/
