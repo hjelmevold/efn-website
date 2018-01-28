@@ -2,6 +2,9 @@
  * CUSTOM CSS *
  **************/
 
+/* START pc media query */
+@media (min-width: 970px) {
+
 #header, #outer-container, #footer {margin:0 auto;padding:0 10px;position:relative;}
 #header {height:112px;}
 #logo-screen {position:absolute;top:20px;left:38px;width:200px;height:66px;}
@@ -354,14 +357,6 @@ p.preface {
     background-color: #dfdfdf;
 }
 
-/* Print CSS */
-@media print {
-    #logo-print {
-        width: 144px;
-        height: 63px;
-    }
-}
-
 
 
 .front-page #center {
@@ -383,4 +378,16 @@ p.preface {
     /*background-color: #FBC381;*/
     /*padding: 0 0.5em;*/
     text-transform: uppercase;
+}
+
+
+/* END pc media query */
+}
+
+/* Print CSS */
+@media print {
+    #logo-print {
+        width: 144px;
+        height: 63px;
+    }
 }

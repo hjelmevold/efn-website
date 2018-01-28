@@ -4,6 +4,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>EFN</title>
+        <!-- TODO: not sure if this is correct metadata for a responsive page??? -->
+        <meta content="minimum-scale=1.0, width=device-width, user-scalable=yes" name="viewport"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+
         <meta name="robots" content="nofollow" />
         <meta name="generator" content="Enonic CMS" />
         <meta http-equiv="content-language" content="no" />
@@ -17,13 +21,17 @@
         <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=libraries/jquery/scripts/jquery.cookie.js'})}"></script>
         <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=sites/advanced/scripts/common-all.js'})}"></script>
         <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=sites/advanced/scripts/common-pc.js'})}"></script>
+        <!-- TODO: test if there is a conflict with having both pc and mobile scripts simultanesously -->
+        <script type="text/javascript" data-th-src="${portal.assetUrl({'_path=sites/advanced/scripts/common-mobile.js'})}"></script>
 
         <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=sites/advanced/all.css'})}" type="text/css" />
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=sites/advanced/mobile.css'})}" type="text/css" />
         <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=sites/advanced/pc.css'})}" type="text/css" />
         <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/ui-custom-theme/jquery-ui-1.7.2.custom.css'})}" type="text/css" />
         <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/all.css'})}" type="text/css" />
-        <!--/* TODO: Add mobile support which was present in Enonic CMS. Currently desktop only. */-->
+        <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/mobile.css'})}" type="text/css" />
         <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=skins/advanced/efn/pc.css'})}" type="text/css" />
+
         <link href="//fonts.googleapis.com/css?family=Ubuntu:700italic,700,400italic,400" rel="stylesheet" type="text/css" />
         <link href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
 
@@ -31,6 +39,7 @@
             <link rel="stylesheet" type="text/css" data-th-href="${portal.assetUrl({'_path=sites/advanced/ie.css'})}" />
         <span data-th-utext="'&lt;![endif]--&gt;'" data-th-remove="tag"></span>
 
+        <!-- TODO: dynamic width calculation -->
         <style type="text/css">@media screen { #header, #outer-container, #footer {width: 950px;} #north {width: 950px;padding: 0px;} #west {width: 190px;padding: 0px;margin-right: 10px;} #center {width: 730px;padding: 10px;margin-right: 10px;} #east {width: 190px;padding: 0px;} #south {width: 950px;padding: 0px;}.menu.main.level1 .fixed-add-one { width: 159px; } .menu.main.level1 .fixed { width: 158px; }}#north .frame {padding: 10px;}#west .frame {padding: 10px;}#center .frame {padding: 10px;border-width: 1px;}#east .frame {padding: 10px;}#south .frame {padding: 10px;}</style>
     </head>
 
@@ -62,12 +71,13 @@
                             <a href="#" id="contrast">Høykontrast</a>
                         </li>
                         <li>
-                            <a href="/no" class="tooltip" title="">
+                            <a href="/no">
+                                <!-- TODO: active state on flag -->
                                 <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-no-active.png'})}" alt="" />
                             </a>
                          </li>
                         <li>
-                            <a href="/en" class="tooltip" title="">
+                            <a href="/en">
                                 <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-en.png'})}" alt="" />
                             </a>
                         </li>

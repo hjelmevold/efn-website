@@ -1,7 +1,10 @@
 /**************
  * CUSTOM CSS *
  **************/
- 
+
+/* START mobile media query */
+@media (max-width: 969px) {
+
  /* Blueprint override */
 body {font-size:100%;color:#000;background-color:#000;font-family:'Ubuntu',sans-serif;}
 a:focus, a:hover {color:#e23a03;text-decoration:none;}
@@ -283,4 +286,7 @@ p.preface {
 /* UI dialog */
 .ui-dialog {
     padding: 0;
+}
+
+/* END mobile media query */
 }

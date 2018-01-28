@@ -1,3 +1,20 @@
-<div>
-    <h1 data-th-text="${partName}"></h1>
+<div id="article" class="clear append-bottom">
+    <h1 data-th-text="${heading}"></h1>
+    <!--/* TODO: mobile and related content */-->
+    <p class="preface">
+        <span class="byline" data-th-unless="${isAnonymous}" data-th-text="${publishDate}"></span>
+        <span data-th-utext="${preface}" data-th-remove="tag"></span>
+    </p>
+    <div class="editor" data-th-utext="${text}"></div>
+    <!--/*
+    If content is published to "Fra det offentlige"
+    <xsl:if test="location/site/contentlocation[@menuitemkey = '34']">
+      <p class="disclaimer">
+        <strong>Forbehold</strong>
+        <br/>
+        <em>Innholdet i denne artikkelen representerer ikke nødvendigvis EFNs standpunkt, men refereres i denne spalte fordi den faller innenfor EFNs interessefelt.</em>
+      </p>
+    </xsl:if>
+    */-->
+
 </div>

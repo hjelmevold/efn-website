@@ -1,17 +1,36 @@
 var thymeleafLib = require('/lib/xp/thymeleaf');
+var portalLib = require('/lib/xp/portal');
+var moment = require('/assets/momentjs/2.12.0/min/moment-with-locales.min.js');
+
 var view = resolve('article-show.html');
 
-function handleGet(req) {
+function handleGet(request) {
 
-    var params = {
-        partName: "article-show"
+    log.info('request');
+    log.info(JSON.stringify(request, null, 4));
+
+    var content = portalLib.getContent({});
+    log.info('content');
+    log.info(JSON.stringify(content, null, 4));
+
+    var publishDateSource = content.data.created || content.publish.from || content.createdTime;
+    // TODO: prefer site language over content language?
+    // NB: seems to always be english?
+    var locale = content.language || 'nb';
+    var publishDateFormatted = moment(publishDateSource).locale(locale).format('LL');
+
+    var model = {
+        partName: "article-show",
+        heading: content.data.title || content._displayName,
+        preface: content.data.preface,
+        text: portalLib.processHtml({ value: content.data.text }),
+        publishDate: publishDateFormatted,
+        isAnonymous: content.data.anonymous
     };
-
-    var body = thymeleafLib.render(view, params);
 
     return {
         contentType: 'text/html',
-        body: body
+        body: thymeleafLib.render(view, model)
     };
 }
 

@@ -2,6 +2,9 @@
  * CUSTOM CSS *
  **************/
 
+/* START mobile media query */
+@media (max-width: 969px) {
+
 /* Blueprint override */
 h1 {font-size:1.8em;line-height:1;margin-bottom:0.5em;}
 h2 {font-size:1.6em;margin-bottom:0.75em;}
@@ -149,4 +152,7 @@ ul.menu.navigation {
 
 ul.menu.navigation div, ul.menu.navigation a {
     margin-left: 5px;
+}
+
+/* END mobile media query */
 }
