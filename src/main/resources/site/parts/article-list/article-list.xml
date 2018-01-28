@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
-  <display-name>article-list-small</display-name>
+  <display-name>Article list</display-name>
   <config>
     <input name="custom-heading" type="TextLine">
         <label>custom-heading</label>
