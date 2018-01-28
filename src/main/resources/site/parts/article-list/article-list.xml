@@ -2,13 +2,80 @@
 <part>
     <display-name>Article list</display-name>
     <config>
-        <input name="useSmallDesign" type="CheckBox">
-            <label>Use Small Design</label>
-            <occurrences maximum="1" minimum="0"/>
-        </input>
-        <input name="heading" type="TextLine">
-            <label>Heading</label>
-            <occurrences maximum="1" minimum="0"/>
-        </input>
+        <!--items-->
+            <input name="heading" type="TextLine">
+                <label>Level 2 heading</label>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <input name="numArticles" type="Long">
+                <label>Number of articles to show</label>
+                <config>
+                    <min>1</min>
+                    <max>100</max>
+                </config>
+                <default>10</default>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <input name="showPagination" type="CheckBox">
+                <label>Show pagination links</label>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <input name="useSmallDesign" type="CheckBox">
+                <label>Use Small Design</label>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <input name="readMoreTarget" type="ContentSelector">
+                <label>"Read more"-page</label>
+                <occurrences maximum="1" minimum="0"/>
+                <config>
+                    <hideToggleIcon>true</hideToggleIcon>
+                </config>
+            </input>
+            <option-set name="source">
+                <label>Article list source</label>
+                <expanded>true</expanded>
+                <occurrences minimum="1" maximum="1"/>
+                <options minimum="1" maximum="1">
+                    <option name="current">
+                        <label>Articles beneath current page</label>
+                        <default>true</default>
+                    </option>
+                    <option name="children">
+                        <label>Articles beneath other content</label>
+                        <default>false</default>
+                        <items>
+                            <input name="content" type="ContentSelector">
+                        		<label>Content</label>
+                        		<occurrences minimum="1" maximum="1"/>
+                        		<config/>
+                        	</input>
+                        </items>
+                    </option>
+                    <option name="manual">
+                        <label>Manual selection</label>
+                        <default>false</default>
+                        <items>
+                            <input name="content" type="ContentSelector">
+                        		<label>Content</label>
+                        		<occurrences minimum="1" maximum="100"/>
+                        		<config>
+                                    <allowContentType>artikkel</allowContentType>
+                                    <hideToggleIcon>true</hideToggleIcon>
+                                </config>
+                        	</input>
+                        </items>
+                    </option>
+                </options>
+            </option-set>
+            <input name="sortExpression" type="TextLine">
+                <label>Sorting expression</label>
+                <default>_manualOrderValue DESC</default>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <!--input name="hideDates" type="CheckBox">
+                <label>Hide all dates</label>
+                <occurrences maximum="1" minimum="0"/>
+            </input-->
+        <!--/items-->
     </config>
 </part>

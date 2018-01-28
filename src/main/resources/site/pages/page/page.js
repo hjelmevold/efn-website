@@ -2,21 +2,19 @@ var portalLib = require('/lib/xp/portal');
 var thymeleafLib = require('/lib/xp/thymeleaf');
 var view = resolve('page.html');
 
-function handleGet(req) {
+function handleGet(request) {
     var site = portalLib.getSite();
     var reqContent = portalLib.getContent();
 
-    var params = {
-        context: req,
+    var model = {
+        context: request,
         site: site,
         reqContent: reqContent
     };
 
-    var body = thymeleafLib.render(view, params);
-
     return {
         contentType: 'text/html',
-        body: body
+        body: thymeleafLib.render(view, model)
     };
 }
 

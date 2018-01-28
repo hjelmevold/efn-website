@@ -1,9 +1,12 @@
 var portalLib = require('/lib/xp/portal');
-var utilLib = require('/lib/enonic/util');
 var thymeleafLib = require('/lib/xp/thymeleaf');
+var utilLib = require('/lib/enonic/util');
+
 var view = resolve('link-list.html');
 
-function handleGet(req) {
+
+
+function handleGet(request) {
 
     var component = portalLib.getComponent();
     var config = component.config;
@@ -40,5 +43,7 @@ function handleGet(req) {
         body: thymeleafLib.render(view, model)
     };
 }
+
+
 
 exports.get = handleGet;

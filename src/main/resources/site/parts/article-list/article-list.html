@@ -1,3 +1,36 @@
-<div>
-    <h1 data-th-text="${partName}"></h1>
+<div class="article-list-small">
+    <!--/*
+    <xsl:if test="/result/context/querystring/parameter[@name = 'q'] != ''">
+  <xsl:choose>
+    <xsl:when test="/result/contents/content">
+      <p>Ditt søk på <strong>"<xsl:value-of select="/result/context/querystring/parameter[@name = 'q']"/>"</strong> ga følgende treff:</p>
+    </xsl:when>
+    <xsl:otherwise>
+      <p>Ditt søk på <strong>"<xsl:value-of select="/result/context/querystring/parameter[@name = 'q']"/>"</strong> ga ingen treff.</p>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:if>
+    */-->
+    <h2 class="portlet-heading" data-th-text="${heading}" data-th-if="${heading}"></h2>
+    <!-- If full view: pagination -->
+    <div class="list clear clearfix append-bottom">
+        <div class="item" data-th-each="article,iterStat : ${articles}" data-th-classappend="${iterStat.first} ? 'first' :''">
+            <!-- TODO: iterStat.last -->
+            <h2 data-th-unless="${useSmallDesign}">
+                <a data-th-href="${article.pageUrl}" data-th-text="${article.data.heading}"></a>
+            </h2>
+            <h3 data-th-if="${useSmallDesign}">
+                <a data-th-href="${article.pageUrl}" data-th-text="${article.data.heading}"></a>
+            </h3>
+            <!--/* <xsl:if test="$show-author-and-date = 'true' or normalize-space(contentdata/preface)"> */-->
+            <p>
+                <span class="byline" data-th-text="${article.formattedDate}">
+                    <!-- TODO: author -->
+                </span>
+                <span data-th-text="${article.prefaceCropped}" data-th-remove="tag"></span>
+            </p>
+        </div>
+    <div>
+    <!-- RSS link??? -->
+    <!-- If full view: pagination -->
 </div>

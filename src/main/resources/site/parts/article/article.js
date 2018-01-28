@@ -10,12 +10,11 @@ function handleGet(request) {
 
     var publishDateSource = content.data.created || content.publish.from || content.createdTime;
     // TODO: prefer site language over content language?
-    // NB: seems to always be english?
+    // NB: locale seems to always be english? doesn't work to use 'LL'
     var locale = content.language || 'nb';
-    var publishDateFormatted = moment(publishDateSource).locale(locale).format('LL');
+    var publishDateFormatted = moment(publishDateSource).locale(locale).format('DD/MM/YYYY');
 
     var model = {
-        partName: "article-show",
         heading: content.data.heading || content.displayName,
         preface: content.data.preface,
         text: portalLib.processHtml({ value: content.data.text }),

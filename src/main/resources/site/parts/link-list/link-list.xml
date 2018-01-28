@@ -24,8 +24,10 @@
                         <items>
                             <input name="content" type="ContentSelector">
                         		<label>Content</label>
-                        		<occurrences minimum="1" maximum="1"/>
-                        		<config/>
+                                <config>
+                                    <hideToggleIcon>true</hideToggleIcon>
+                                </config>
+                                <occurrences minimum="1" maximum="1"/>
                         	</input>
                         </items>
                     </option>
