@@ -134,7 +134,7 @@ var doGetSubMenus = function (parentContent, levels) {
     var subMenus = [];
     var currentContent = libs.portal.getContent() || parentContent; // Fallback to currentContent if there's no content (like in errorHandlers).;
 
-    if (parentContent && parentContent.type === 'portal:site' && isMenuItem(parentContent)) {
+    if (parentContent.type === 'portal:site' && isMenuItem(parentContent)) {
         subMenus.push(renderMenuItem(currentContent, parentContent, 0));
     }
 

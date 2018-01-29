@@ -13,8 +13,8 @@ function handleGet(request) {
     var component = portalLib.getComponent();
     var config = component.config;
 
-    var start = request.params.index || 0;
-    var count = request.params.count || config.count || 10;
+    var start = parseInt(request.params.index) || 0;
+    var count = parseInt(request.params.count) || config.numArticles || 10;
     var total = 0;
 
     var articles = [];
@@ -44,22 +44,41 @@ function handleGet(request) {
         // TODO: make sure showPagination is then set to false in the model
     }
 
+    // Articles added to a specific section (DEPCRECATED)
+    else if (config.source && config.source._selected === 'section' && config.source.section.content) {
+        var sectionParent = contentLib.get({ key: config.source.section.content });
+        if (sectionParent && sectionParent.data && sectionParent.data.sectionContents) {
+            var articlesUnsorted = [];
+            var articleIds = utilLib.data.forceArray(sectionParent.data.sectionContents);
+            articleIds.forEach(function (id, index) {
+                if (index < count) {
+                    var article = contentLib.get({ key: id });
+                    // Only get articles or links, not any content of other types
+                    if (article.type === app.name + ':artikkel' || article.type === app.name + ':lenke') {
+                        articlesUnsorted.push(article);
+                    }
+                }
+            });
+            // DOESN'T WORK!
+            if (config.forceSortDateDescending) {
+                articles = articlesUnsorted.sort(function(a,b) {
+                    return new Date(b.createdTime) - new Date(a.createdTime);
+                });
+            } else {
+                articles = articlesUnsorted;
+            }
+            // TODO: make sure showPagination is then set to false in the model
+        }
+    }
+
     // Articles that are children of a content
     else {
         var parentContentId = portalLib.getContent()._id; // fallback. by default, the current content is used as parent
+        // Articles that are children of another specified content
         if (config.source && config.source._selected === 'children' && config.source.children.content) {
             parentContentId = config.source.children.content;
         }
         var parentContent = contentLib.get({ key: parentContentId });
-
-        /*
-        // unfortunately, getChildren does not allow filtering on content type. let's use contentLib.query() instead.
-        var articleQuery = contentLib.getChildren({
-            key: parentContentId,
-            start: start,
-            count: count
-        });
-        */
 
         // Get all content that has the CMS content home set (DEPRECATED!)
         //var query = "x.no-efn-xp-app-website.cmsContent.contentHome = '" + parentContentId + "'";
@@ -86,7 +105,11 @@ function handleGet(request) {
         article.formattedDate = moment(publishDateSource).locale(locale).format('DD/MM/YYYY');
 
         // Link
-        article.pageUrl = portalLib.pageUrl({ id: article._id });
+        if (article.type === app.name + ':lenke') {
+
+        } else {
+            article.pageUrl = portalLib.pageUrl({ id: article._id });
+        }
 
         // Preface crop
         article.prefaceCropped = (article.data.preface.length >= 320)

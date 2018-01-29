@@ -21,7 +21,7 @@
                 <occurrences maximum="1" minimum="0"/>
             </input>
             <input name="useSmallDesign" type="CheckBox">
-                <label>Use Small Design</label>
+                <label>Use small design</label>
                 <occurrences maximum="1" minimum="0"/>
             </input>
             <input name="readMoreTarget" type="ContentSelector">
@@ -47,7 +47,23 @@
                             <input name="content" type="ContentSelector">
                         		<label>Content</label>
                         		<occurrences minimum="1" maximum="1"/>
-                        		<config/>
+                        		<config>
+                                    <hideToggleIcon>true</hideToggleIcon>
+                                </config>
+                        	</input>
+                        </items>
+                    </option>
+                    <option name="section">
+                        <label>Articles from section (DEPRECATED)</label>
+                        <default>false</default>
+                        <items>
+                            <input name="content" type="ContentSelector">
+                        		<label>Content</label>
+                        		<occurrences minimum="1" maximum="1"/>
+                        		<config>
+                                    <allowContentType>cms2xp_section</allowContentType>
+                                    <hideToggleIcon>true</hideToggleIcon>
+                                </config>
                         	</input>
                         </items>
                     </option>
@@ -60,18 +76,22 @@
                         		<occurrences minimum="1" maximum="100"/>
                         		<config>
                                     <allowContentType>artikkel</allowContentType>
-                                    <hideToggleIcon>true</hideToggleIcon>
+                                    <hideToggleIcon>false</hideToggleIcon>
                                 </config>
                         	</input>
                         </items>
                     </option>
                 </options>
             </option-set>
-            <input name="sortExpression" type="TextLine">
+            <input name="forceSortDateDescending" type="CheckBox">
+                <label>Force sort by date descending</label>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
+            <!--input name="sortExpression" type="TextLine">
                 <label>Sorting expression</label>
                 <default>_manualOrderValue DESC</default>
                 <occurrences maximum="1" minimum="0"/>
-            </input>
+            </input-->
             <!--input name="hideDates" type="CheckBox">
                 <label>Hide all dates</label>
                 <occurrences maximum="1" minimum="0"/>
