@@ -115,24 +115,17 @@
         </div>
         <div id="outer-container" class="clear clearfix">
             <div class="clear clearfix mobile-hidden" id="main-menu">
-                <ul class="menu horizontal main screen clearfix level1">
-                    <li class="fixed-add-one">
-                        <a href="/no/forside" class="first path active" title="Forside">Forside</a>
-                    </li>
-                    <li class="fixed-add-one">
-                        <a href="/no/nyheter" title="Nyheter">Nyheter</a>
-                    </li>
-                    <li class="fixed">
-                        <a href="/no/vart-arbeid" title="Vårt arbeid">Vårt arbeid</a>
-                    </li>
-                    <li class="fixed">
-                        <a href="/no/efnu" title="EFNU">EFNU</a>
-                    </li>
-                    <li class="fixed">
-                        <a href="/no/om-efn" title="Om EFN">Om EFN</a>
-                    </li>
-                    <li class="fixed">
-                        <a href="/no/bli-medlem" class=" last" title="Bli medlem">Bli medlem</a>
+                <ul data-th-if="${isEnglishCorner}" class="menu horizontal main screen clearfix level1">
+                   <li class="fixed">
+                       <a href="/en/home" class="first last path active">English Corner</a>
+                   </li>
+                </ul>
+                <ul data-th-unless="${isEnglishCorner}" class="menu horizontal main screen clearfix level1">
+                    <li data-th-each="menuItem,iterStat : ${mainMenuItems}" class="fixed">
+                        <a
+                            data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}"
+                            data-th-text="${menuItem.displayName}"
+                            data-th-class="|${iterStat.first ? 'first' : ''} ${iterStat.last ? 'last' : ''} ${menuItem.inPath ? 'path' : ''} ${menuItem.isActive ? 'active' : ''}|">Forside</a>
                     </li>
                 </ul>
             </div>
@@ -154,6 +147,28 @@
             <!--startindex-->
             <div id="middle-container" class="clear clearfix">
                 <div id="inner-container" class="clear clearfix">
+                    <div id="west" class="column clear clearfix screen mobile-hidden" data-th-if="${subMenuItems}">
+                        <!--googleoff: index-->
+                        <!--stopindex-->
+                        <ul class="menu sub append-bottom" id="sub-menu">
+                            <li data-th-each="menuItem,iterStat : ${subMenuItems}">
+                                <a
+                                    data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}"
+                                    data-th-text="${menuItem.displayName}"
+                                    data-th-class="|${iterStat.first ? 'first' : ''} ${iterStat.last ? 'last' : ''} ${menuItem.inPath ? 'path' : ''} ${menuItem.isActive ? 'active' : ''}|">EFN-listen</a>
+                                <ul class="clearfix">
+                                    <li data-th-each="child : ${menuItem.children}">
+                                        <a
+                                            data-th-href="${portal.pageUrl({'_path=' + child.path})}"
+                                            data-th-text="${child.displayName}"
+                                            data-th-class="|${childStat.first ? 'first' : ''} ${childStat.last ? 'last' : ''} ${child.inPath ? 'path' : ''} ${child.isActive ? 'active' : ''}|">På høring</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!--googleon: index-->
+                        <!--startindex-->
+                    </div>
                     <div id="center" class="column clearfix" data-portal-region="center">
                         <div data-th-if="${reqContent.page.regions['center']}" data-th-remove="tag">
                             <div data-th-each="component : ${reqContent.page.regions['center'].components}" data-th-remove="tag">
