@@ -89,8 +89,8 @@ function handleGet(request) {
         article.pageUrl = portalLib.pageUrl({ id: article._id });
 
         // Preface crop
-        article.prefaceCropped = (article.data.preface.length >= 160)
-            ? article.data.preface.slice(0, 159) + "…"
+        article.prefaceCropped = (article.data.preface.length >= 320)
+            ? article.data.preface.slice(0, 319) + "…"
             : article.data.preface
 
         return article;
