@@ -78,12 +78,12 @@
                 <div class="header-content top clearfix">
                     <ul class="menu horizontal flags screen">
                         <li id="text-size">
-                            <a href="#" class="change-text-size">Skriftstørrelse</a><a href="#">A</a>
+                            <a href="#" class="change-text-size" data-th-text="${portal.localize({'_key=Text-size','_locale=' + reqContent.language})}">Skriftstørrelse</a><a href="#">A</a>
                             <a href="#" class="large-text">A</a>
                             <a href="#" class="largest-text">A</a>
                         </li>
                         <li>
-                            <a href="#" id="contrast">Høykontrast</a>
+                            <a href="#" id="contrast" data-th-text="${portal.localize({'_key=High-contrast','_locale=' + reqContent.language})}">Høykontrast</a>
                         </li>
                         <li>
                             <a data-th-href="${portal.pageUrl({'_path=/efn/no/forside'})}">
@@ -100,14 +100,14 @@
                     </ul>
                 </div>
                 <div class="header-content bottom clear clearfix">
-                    <ul class="menu horizontal">
+                    <!--ul class="menu horizontal">
                         <li>
                             <a data-th-href="${portal.pageUrl({'_path=/efn/no/forside/nettstedskart'})}">Nettstedskart</a>
                         </li>
-                    </ul>
+                    </ul-->
                     <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get">
                         <fieldset>
-                            <label for="page-search-box">Søk</label>
+                            <label for="page-search-box" data-th-text="${portal.localize({'_key=Search','_locale=' + reqContent.language})}">Søk</label>
                             <input type="text" class="text" name="q" id="page-search-box" value="" />
                         </fieldset>
                     </form>
@@ -130,7 +130,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="navigation" class="clearfix pc-hidden"><a href="#" class="bullet plus">Vis meny</a></div>
+            <div id="navigation" class="clearfix pc-hidden"><a href="#" class="bullet plus">Show menu</a></div>
             <ul id="menu" class="clear pc-hidden">
                 <li class="first active"><a href="/no/forside" class="nav">Forside</a><a href="/no/forside" class="bullet arrow"><br /></a></li>
                 <li><a href="/no/nyheter" class="nav closed">Nyheter</a><a href="/no/nyheter" class="bullet arrow"><br /></a></li>
@@ -139,9 +139,9 @@
                 <li><a href="/no/om-efn" class="nav closed">Om EFN</a><a href="/no/om-efn" class="bullet arrow"><br /></a></li>
                 <li><a href="/no/bli-medlem" class="nav">Bli medlem</a><a href="/no/bli-medlem" class="bullet arrow"><br /></a></li>
              </ul>
-             <form action="/no/forside/sokeresultat" method="get" class="clear pc-hidden"
+             <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get" class="clear pc-hidden"
                    id="page-search-form">
-                <fieldset><label for="page-search-box">Søk</label><input type="text" class="text" name="q" id="page-search-box" value="" /><input type="submit" class="button" value="Gå" /></fieldset>
+                <fieldset><label for="page-search-box" data-th-text="${portal.localize({'_key=Search','_locale=' + reqContent.language})}">Søk</label><input type="text" class="text" name="q" id="page-search-box" value="" /><input type="submit" class="button" data-th-value="${portal.localize({'_key=Go','_locale=' + reqContent.language})}" /></fieldset>
              </form>
             <!--div id="breadcrumb-trail" class="clear screen mobile-hidden">Du er her: EFN</div-->
             <!--googleon: index-->

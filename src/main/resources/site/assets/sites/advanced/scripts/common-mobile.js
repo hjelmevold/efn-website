@@ -1,8 +1,8 @@
 $(function() {
 
     positionBullets($('#menu'));
-    
-    // Mobile menu: Toggle submenus, get submenus with ajax call, follow links            
+
+    // Mobile menu: Toggle submenus, get submenus with ajax call, follow links
     $('a.nav').live("click", function(){
         var selItem = $(this);
         if ($(this).hasClass('open') || $(this).hasClass('closed')) {
@@ -32,7 +32,7 @@ $(function() {
         }
         return false;
     });
-    
+
     // This is required to load the pages inside the web app
     $('a:not(.nav)').click(function (event) {
         if ($(this).attr('rel') != 'external') {
@@ -41,9 +41,25 @@ $(function() {
         }
     });
 
+
+    // Added from page.xsl after XP migration
+    $('#navigation a').click(function (event) {
+                event.preventDefault();
+                var navBar = $(this);
+                $('#menu').slideToggle('fast', function() {
+                  navBar.toggleClass('plus');
+                  navBar.toggleClass('minus');
+                  if (navBar.text() == "Show menu") {
+                    navBar.text("Hide menu");
+                  } else {
+                    navBar.text("Show menu");
+                  }
+                });
+              });
+
 });
 
-// Mobile menu: Center bullets vertically 
+// Mobile menu: Center bullets vertically
 function positionBullets(element) {
     element.find('.bullet.arrow:visible').each(function() {
         $(this).height(Math.ceil($(this).prev('a').height()));
