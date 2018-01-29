@@ -20,6 +20,11 @@
                 <label>Show pagination links</label>
                 <occurrences maximum="1" minimum="0"/>
             </input>
+            <input name="showDate" type="CheckBox">
+                <label>Show article dates</label>
+                <default>checked</default>
+                <occurrences maximum="1" minimum="0"/>
+            </input>
             <input name="useSmallDesign" type="CheckBox">
                 <label>Use small design</label>
                 <occurrences maximum="1" minimum="0"/>
@@ -87,15 +92,11 @@
                 <label>Force sort by date descending</label>
                 <occurrences maximum="1" minimum="0"/>
             </input>
-            <!--input name="sortExpression" type="TextLine">
+            <input name="sortExpression" type="TextLine">
                 <label>Sorting expression</label>
                 <default>_manualOrderValue DESC</default>
                 <occurrences maximum="1" minimum="0"/>
-            </input-->
-            <!--input name="hideDates" type="CheckBox">
-                <label>Hide all dates</label>
-                <occurrences maximum="1" minimum="0"/>
-            </input-->
+            </input>
         <!--/items-->
     </config>
 </part>

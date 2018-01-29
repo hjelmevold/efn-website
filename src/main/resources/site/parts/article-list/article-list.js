@@ -127,8 +127,9 @@ function handleGet(request) {
         total: total,
         heading: config.heading,
         readMoreTarget: config.readMoreTarget ? portalLib.pageUrl({ id: config.readMoreTarget }) : null,
+        showDate: config.showDate,
         showPagination: config.showPagination,
-        useSmallDesign: config.useSmallDesign,
+        useSmallDesign: config.useSmallDesign
     };
 
     return {

@@ -9,7 +9,10 @@
                 <h3 data-th-if="${useSmallDesign}">
                     <a data-th-href="${article.pageUrl}" data-th-text="${article.data.heading}">Heading</a>
                 </h3>
-                <p data-th-text="${article.prefaceCropped}"></p>
+                <p>
+                    <span class="byline" data-th-if="${showDate}" data-th-text="${article.formattedDate}">01/01/1970</span>
+                    <span data-th-text="${article.prefaceCropped}">preface</span>
+                </p>
             </div>
         </th:block>
     </div>

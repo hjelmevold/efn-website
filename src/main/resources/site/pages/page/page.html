@@ -65,11 +65,11 @@
         </style>
     </head>
 
-    <body class="front-page" data-portal-component-type="page">
+    <body data-th-class="${isFrontPage} ? 'front-page' : ''" data-portal-component-type="page">
         <!--googleoff: index-->
         <!--stopindex-->
         <div id="header">
-            <a class="screen" href="/no/forside">
+            <a class="screen" data-th-href="${portal.pageUrl({'_path=/efn/no/forside'})}">
                 <img alt="EFN-logo" id="logo-screen" class="mobile-hidden" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/logo-screen.png'})}" title="EFN" />
                 <img alt="EFN-logo" id="logo" class="pc-hidden" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images-mobile/logo.png'})}" title="EFN" />
             </a>
@@ -86,14 +86,15 @@
                             <a href="#" id="contrast">Høykontrast</a>
                         </li>
                         <li>
-                            <a href="/no">
-                                <!-- TODO: active state on flag -->
-                                <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-no-active.png'})}" alt="" />
+                            <a data-th-href="${portal.pageUrl({'_path=/efn/no/forside'})}">
+                                <img data-th-unless="${isEnglishCorner}" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-no-active.png'})}" alt="" />
+                                <img data-th-if="${isEnglishCorner}" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-no.png'})}" alt="" />
                             </a>
                          </li>
                         <li>
-                            <a href="/en">
-                                <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-en.png'})}" alt="" />
+                            <a data-th-href="${portal.pageUrl({'_path=/efn/en/home'})}">
+                                <img data-th-unless="${isEnglishCorner}" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-en.png'})}" alt="" />
+                                <img data-th-if="${isEnglishCorner}" data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/flag-en-active.png'})}" alt="" />
                             </a>
                         </li>
                     </ul>
@@ -101,10 +102,10 @@
                 <div class="header-content bottom clear clearfix">
                     <ul class="menu horizontal">
                         <li>
-                            <a href="/no/forside/nettstedskart">Nettstedskart</a>
+                            <a data-th-href="${portal.pageUrl({'_path=/efn/no/forside/nettstedskart'})}">Nettstedskart</a>
                         </li>
                     </ul>
-                    <form action="/no/forside/sokeresultat" method="get">
+                    <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get">
                         <fieldset>
                             <label for="page-search-box">Søk</label>
                             <input type="text" class="text" name="q" id="page-search-box" value="" />
@@ -117,7 +118,7 @@
             <div class="clear clearfix mobile-hidden" id="main-menu">
                 <ul data-th-if="${isEnglishCorner}" class="menu horizontal main screen clearfix level1">
                    <li class="fixed">
-                       <a href="/en/home" class="first last path active">English Corner</a>
+                       <a data-th-href="${portal.pageUrl({'_path=/efn/en/home'})}" class="first last path active">English Corner</a>
                    </li>
                 </ul>
                 <ul data-th-unless="${isEnglishCorner}" class="menu horizontal main screen clearfix level1">
@@ -142,7 +143,7 @@
                    id="page-search-form">
                 <fieldset><label for="page-search-box">Søk</label><input type="text" class="text" name="q" id="page-search-box" value="" /><input type="submit" class="button" value="Gå" /></fieldset>
              </form>
-            <div id="breadcrumb-trail" class="clear screen mobile-hidden">Du er her: EFN</div>
+            <!--div id="breadcrumb-trail" class="clear screen mobile-hidden">Du er her: EFN</div-->
             <!--googleon: index-->
             <!--startindex-->
             <div id="middle-container" class="clear clearfix">
@@ -189,9 +190,9 @@
         <!--googleoff: index-->
         <!--stopindex-->
         <div id="footer" class="clear clearfix">
-            <a href="/no/rss" class="screen">
+            <!--a href="/no/rss" class="screen">
                 <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/icon-rss-large.png'})}" alt="RSS ikon" />
-            </a>
+            </a-->
             <p>
                 <a href="http://www.linux.org/">
                     <img data-th-src="${portal.assetUrl({'_path=skins/advanced/efn/images/linuxpowered.png'})}" width="110" height="44" alt="www.linux.org - a GNU and better computer for you" />
