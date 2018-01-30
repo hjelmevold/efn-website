@@ -132,12 +132,18 @@
             </div>
             <div id="navigation" class="clearfix pc-hidden"><a href="#" class="bullet plus">Show menu</a></div>
             <ul id="menu" class="clear pc-hidden">
-                <li class="first active"><a href="/no/forside" class="nav">Forside</a><a href="/no/forside" class="bullet arrow"><br /></a></li>
-                <li><a href="/no/nyheter" class="nav closed">Nyheter</a><a href="/no/nyheter" class="bullet arrow"><br /></a></li>
-                <li><a href="/no/vart-arbeid" class="nav closed">Vårt arbeid</a><a href="/no/vart-arbeid" class="bullet arrow"><br /></a></li>
-                <li><a href="/no/efnu" class="nav closed">EFNU</a><a href="/no/efnu" class="bullet arrow"><br /></a></li>
-                <li><a href="/no/om-efn" class="nav closed">Om EFN</a><a href="/no/om-efn" class="bullet arrow"><br /></a></li>
-                <li><a href="/no/bli-medlem" class="nav">Bli medlem</a><a href="/no/bli-medlem" class="bullet arrow"><br /></a></li>
+                <li data-th-each="menuItem,iterStat : ${mobileMenuItems}"
+                    data-th-class="|${iterStat.first ? 'first' : ''} ${iterStat.last ? 'last' : ''} ${menuItem.inPath ? 'path' : ''} ${menuItem.isActive ? 'active' : ''}|">
+
+                    <a class="nav open" data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}" data-th-text="${menuItem.displayName}">Forside</a>
+                    <a class="bullet arrow" data-th-href="${portal.pageUrl({'_path=' + menuItem.path})}"><br /></a>
+                    <ul data-th-if="${menuItem.children}">
+                        <li data-th-each="child : ${menuItem.children}">
+                            <a class="nav" data-th-href="${portal.pageUrl({'_path=' + child.path})}" data-th-text="${child.displayName}">På høring</a>
+                            <a class="bullet arrow" data-th-href="${portal.pageUrl({'_path=' + child.path})}"><br /></a>
+                        </li>
+                    </ul>
+                </li>
              </ul>
              <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get" class="clear pc-hidden"
                    id="page-search-form">

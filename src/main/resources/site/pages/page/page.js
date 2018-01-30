@@ -19,9 +19,13 @@ function handleGet(request) {
     var subMenuItems = subMenuRootContent ? menuLib.getSubMenus(subMenuRootContent, 2) : []; // get 2 levels
     if (subMenuItems.length == 0) subMenuItems = null;
 
+    // Mobile menu items are all retreived at once, but only beneath /no
+    var mobileMenuItems = menuLib.getSubMenus(norwegianRootContent, 2); // get 2 levels
+
     var model = {
         context: request,
         mainMenuItems: mainMenuItems,
+        mobileMenuItems: mobileMenuItems,
         isEnglishCorner: isEnglishCorner,
         isFrontPage: isFrontPage,
         reqContent: reqContent,
