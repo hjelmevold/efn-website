@@ -71,6 +71,20 @@ function handleGet(request) {
         }
     }
 
+    // Search results
+    else if (config.source && config.source._selected === 'all') {
+        var articleQuery = contentLib.query({
+            start: start,
+            contentTypes: [ app.name + ':artikkel'],
+            count: count,
+            query: query,
+            sort: '_score DESC'
+        });
+
+        total = articleQuery.total;
+        if (articleQuery.total > 0) articles = articleQuery.hits;
+    }
+
     // Articles that are children of a content
     else {
         var parentContentId = portalLib.getContent()._id; // fallback. by default, the current content is used as parent
@@ -127,6 +141,7 @@ function handleGet(request) {
         total: total,
         heading: config.heading,
         readMoreTarget: config.readMoreTarget ? portalLib.pageUrl({ id: config.readMoreTarget }) : null,
+        searchTerm: request.params.q,
         showDate: config.showDate,
         showPagination: config.showPagination,
         useSmallDesign: config.useSmallDesign

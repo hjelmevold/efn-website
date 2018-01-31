@@ -1,6 +1,7 @@
 <div class="article-list-small">
     <h2 class="portlet-heading" data-th-text="${heading}" data-th-if="${heading}">Heading</h2>
     <div class="list clear clearfix append-bottom">
+        <h3 data-th-if="${searchTerm}">Fant <span data-th-text="${total}"></span> treff på "<span data-th-text="${searchTerm}"></span>"</h3>
         <th:block data-th-each="article,iterStat : ${articles}">
             <div class="item" data-th-class="${iterStat.first} ? 'item first' : 'item'" data-th-classappend="${iterStat.last} ? 'last' : ''">
                 <h2 data-th-unless="${useSmallDesign}">

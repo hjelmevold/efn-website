@@ -86,6 +86,10 @@
                         	</input>
                         </items>
                     </option>
+                    <option name="all">
+                        <label>All articles (search results)</label>
+                        <default>false</default>
+                    </option>
                 </options>
             </option-set>
             <input name="forceSortDateDescending" type="CheckBox">
