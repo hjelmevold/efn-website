@@ -8,7 +8,7 @@ function handleGet(request) {
     var site = portalLib.getSite();
     var reqContent = portalLib.getContent();
     var isEnglishCorner = reqContent._path.startsWith('/efn/en/');
-    var isFrontPage = (reqContent._path === '/efn/no/forside');
+    var isFrontPage = (reqContent._path === '/efn');
     var norwegianRootContent = contentLib.get({ key: '/efn/no' });
     var mainMenuItems = menuLib.getSubMenus(norwegianRootContent, 1); // get 1 level
 

@@ -105,7 +105,7 @@
                             <a data-th-href="${portal.pageUrl({'_path=/efn/no/forside/nettstedskart'})}">Nettstedskart</a>
                         </li>
                     </ul-->
-                    <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get">
+                    <form data-th-action="${portal.pageUrl({'_path=/efn/no/forside/sokeresultat'})}" method="get">
                         <fieldset>
                             <label for="page-search-box" data-th-text="${portal.localize({'_key=Search','_locale=' + reqContent.language})}">Søk</label>
                             <input type="text" class="text" name="q" id="page-search-box" value="" />
@@ -145,7 +145,7 @@
                     </ul>
                 </li>
              </ul>
-             <form data-th-action="${portal.pageUrl({'_path=/efn/no/sokeresultat'})}" method="get" class="clear pc-hidden"
+             <form data-th-action="${portal.pageUrl({'_path=/efn/no/forside/sokeresultat'})}" method="get" class="clear pc-hidden"
                    id="page-search-form">
                 <fieldset><label for="page-search-box" data-th-text="${portal.localize({'_key=Search','_locale=' + reqContent.language})}">Søk</label><input type="text" class="text" name="q" id="page-search-box" value="" /><input type="submit" class="button" data-th-value="${portal.localize({'_key=Go','_locale=' + reqContent.language})}" /></fieldset>
              </form>
