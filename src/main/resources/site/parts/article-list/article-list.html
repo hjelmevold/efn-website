@@ -5,10 +5,10 @@
         <th:block data-th-each="article,iterStat : ${articles}">
             <div class="item" data-th-class="${iterStat.first} ? 'item first' : 'item'" data-th-classappend="${iterStat.last} ? 'last' : ''">
                 <h2 data-th-unless="${useSmallDesign}">
-                    <a data-th-href="${article.pageUrl}" data-th-text="${article.data.heading}">Heading</a>
+                    <a data-th-href="${article.pageUrl}" data-th-text="${article.displayName}">Heading</a>
                 </h2>
                 <h3 data-th-if="${useSmallDesign}">
-                    <a data-th-href="${article.pageUrl}" data-th-text="${article.data.heading}">Heading</a>
+                    <a data-th-href="${article.pageUrl}" data-th-text="${article.displayName}">Heading</a>
                 </h3>
                 <p>
                     <span class="byline" data-th-if="${showDate}" data-th-text="${article.formattedDate}">01/01/1970</span>
@@ -16,5 +16,6 @@
                 </p>
             </div>
         </th:block>
+        <a data-th-if="${readMoreTarget}" data-th-href="${readMoreTarget}" class="rss">Les mer »</a>
     </div>
 </div>

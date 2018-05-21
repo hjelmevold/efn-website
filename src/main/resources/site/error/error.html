@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title data-th-text="${'Feilmelding ' + errorCode + ' - EFN'}"></title>
+    </head>
+    <body>
+        <img data-th-src="${errorImgUrl}" data-th-alt="${'feilmelding ' + errorCode}" style="width:20%;height:auto !important"/>
+        <h1 data-th-text="${heading}"></h1>
+        <p data-th-text="${description}"></p>
+    </body>
+</html>

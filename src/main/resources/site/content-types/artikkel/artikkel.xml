@@ -1,6 +1,6 @@
 <content-type>
-    <display-name>Article</display-name>
-    <content-display-name-script>$('heading')</content-display-name-script>
+    <display-name>Artikkel</display-name>
+    <!--content-display-name-script>$('heading')</content-display-name-script-->
     <super-type>base:structured</super-type>
     <is-abstract>false</is-abstract>
     <is-final>true</is-final>
@@ -9,11 +9,11 @@
         <field-set name="Artikkel">
             <label>Artikkel</label>
             <items>
-                <input name="heading" type="TextLine">
+                <!--input name="heading" type="TextLine">
                     <label>Overskrift</label>
                     <custom-text>contentdata/heading</custom-text>
                     <occurrences maximum="1" minimum="1"/>
-                </input>
+                </input-->
                 <input name="preface" type="TextArea">
                     <label>Ingress</label>
                     <custom-text>contentdata/preface</custom-text>
@@ -48,7 +48,7 @@
                 </input>
             </items>
         </field-set>
-        <item-set name="image">
+        <!--item-set name="image">
             <label>Bilder</label>
             <occurrences maximum="0" minimum="0"/>
             <items>
@@ -102,6 +102,6 @@
                     <occurrences maximum="1" minimum="0"/>
                 </input>
             </items>
-        </field-set>
+        </field-set-->
     </form>
 </content-type>
